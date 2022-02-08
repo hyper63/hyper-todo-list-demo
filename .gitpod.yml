@@ -9,7 +9,7 @@ tasks:
       npm run start
 vscode:
   extensions:
-    - dbaeumer.vscode-eslint
+    - standard.vscode-standard
 ports:
   # Client
   - port: 3000

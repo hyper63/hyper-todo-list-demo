@@ -2,6 +2,28 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "format": "standard --fix",
+    "lint": "standard",
+    "prepare": "husky install",
+    "staged": "lint-staged --allow-empty",
+    "start": "npx concurrently \"nodemon -r dotenv/config --watch server server/index.js\" \"react-scripts start\"",
+    "test": "react-scripts test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -24,30 +46,14 @@
     "concurrently": "^7.0.0",
     "dotenv": "^16.0.0",
     "http-proxy-middleware": "^2.0.3",
-    "nodemon": "^2.0.15"
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.3",
+    "nodemon": "^2.0.15",
+    "standard": "^16.0.4"
   },
-  "scripts": {
-    "start": "npx concurrently \"nodemon -r dotenv/config --watch server server/index.js\" \"react-scripts start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "standard": {
+    "env": {
+      "jest": true
+    }
   }
 }
