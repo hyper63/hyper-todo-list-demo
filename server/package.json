@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.17.2",
+    "hyper-connect": "^0.1.10"
+  }
+}
