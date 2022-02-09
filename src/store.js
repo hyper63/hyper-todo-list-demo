@@ -1,20 +1,21 @@
-    import {createStore, applyMiddleware} from 'redux';
-    import axios from 'axios';
-    import appReducer from './store/index';
-    import thunkMiddleware from 'redux-thunk';
-    import { composeWithDevTools } from 'redux-devtools-extension'
 
-    let middleware = [ thunkMiddleware.withExtraArgument({axios})]
+import { createStore, applyMiddleware } from 'redux'
+import axios from 'axios'
+import appReducer from './store/index'
+import thunkMiddleware from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-    const RESET_STORE = 'RESET_STORE'
-    export const resetStore = () => ({ type: RESET_STORE })
-    const rootReducer = (state, action) => {
-        if (action.type === RESET_STORE) {
-            state = undefined
-            return appReducer(state, action)
-        }
-        return appReducer(state, action)
-    }
+const middleware = [thunkMiddleware.withExtraArgument({ axios })]
 
-    export default createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(...middleware)))
+const RESET_STORE = 'RESET_STORE'
+export const resetStore = () => ({ type: RESET_STORE })
+const rootReducer = (state, action) => {
+  if (action.type === RESET_STORE) {
+    state = undefined
+    return appReducer(state, action)
+  }
+  return appReducer(state, action)
+}
+
+export default createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(...middleware)))

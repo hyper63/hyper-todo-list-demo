@@ -1,12 +1,12 @@
-import React from 'react';
-import SingleTodoView from './SingleTodoView';
+import React from 'react'
+// import SingleTodoView from './SingleTodoView'
 
 const ListItem = (props) => {
-    const {id, item} = props
-    return(
-        <li >
-            {item}
-        </li>
-    )
+  const { item } = props
+  return (
+    <li>
+      {item}
+    </li>
+  )
 }
-export default ListItem;
+export default ListItem

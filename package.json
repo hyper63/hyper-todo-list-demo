@@ -54,6 +54,7 @@
   "standard": {
     "env": {
       "jest": true
-    }
+    },
+    "globals": ["fetch"]
   }
 }
