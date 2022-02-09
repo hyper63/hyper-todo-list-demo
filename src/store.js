@@ -1,6 +1,6 @@
     import {createStore, applyMiddleware} from 'redux';
     import axios from 'axios';
-    import appReducer from './store';
+    import appReducer from './store/index';
     import thunkMiddleware from 'redux-thunk';
     import { composeWithDevTools } from 'redux-devtools-extension'
 

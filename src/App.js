@@ -23,7 +23,7 @@ function App(){
         <div>
             <Routes>
                 <Route exact path="/" component={Home}/>
-                <Route path="/todos" components={TodoList} />
+                <Route path="/todos" component={TodoList} />
                 <Route path="/todos/:id" component={SingleTodoView}/>
             </Routes>
         </div>
