@@ -16,8 +16,6 @@ A demo using hyper to create a persistent todo list
 You can run the todo list app by using the following steps:
   
   - In your terminal, type the following:
-      - <code>cd todo </code><br>
-        <code>npm start</code>
-        
+      - <code>npm start</code>
       - This will bring up the client application and allow you to test its functionality
       
