@@ -12,10 +12,15 @@ A demo using hyper to create a persistent todo list
 [ ] - Use a design system to improve the styling <br>
 [ ] - Add additional features that the user may like or that make the application appealing
 
-### Installation
+### Getting Started
 You can run the todo list app by using the following steps:
   
   - In your terminal, type the following:
       - <code>npm start</code>
-      - This will bring up the client application and allow you to test its functionality
-      
+      - This will start the React Application on port `3000` and the `express` backend on `3010` with hot reloading
+
+### Build
+
+To build the app for production, run `npm run build`. This will build the React application into `/build`. The express backend is configured to serve that static output.
+
+> In a containerized environment, make sure the build output of CRA is copied to `../build` relative to the backends entrypoint (`server/index.js`)
