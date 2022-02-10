@@ -3,9 +3,19 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: npm install && npm run build
-    command: npm run start
+  - init: npm install
+    command: |
+      export SERVER_HOST=`gp url 3010`
+      npm run start
 vscode:
   extensions:
     - dbaeumer.vscode-eslint
-
+ports:
+  # Client
+  - port: 3000
+    visibility: public
+    onOpen: ignore
+  # Server
+  - port: 3010
+    visibility: public
+    onOpen: ignore

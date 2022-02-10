@@ -1,6 +1,6 @@
 
 import './App.css';
-import React from "react";
+import React, { useEffect } from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import SingleTodoView from './components/SingleTodoView';
 import Form from './components/Form'
@@ -18,6 +18,12 @@ function Home(){
 }
 
 function App(){
+    useEffect(() => {
+        fetch('/api')
+            .then(res => res.json())
+            .then(res => console.log(`${res.message} from Express!`))
+    })
+
     return (
         <Router>
             <Routes>

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const  {connect } = require('hyper-connect');
 
-console.log(connect)
 const hyper = connect(process.env.HYPER);
 
 router.get('/', async (req, res) => {
