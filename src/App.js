@@ -11,7 +11,7 @@ function Home(){
     return(
         <div>
             <h1>Task Master</h1>
-            <TodoList />
+            {/* <TodoList /> */}
             <Form />
         </div>
     )
@@ -20,13 +20,11 @@ function Home(){
 function App(){
     return (
         <Router>
-        <div>
             <Routes>
-                <Route exact path="/" component={Home}/>
-                <Route path="/todos" component={TodoList} />
-                <Route path="/todos/:id" component={SingleTodoView}/>
+                <Route path="/" element={<Home/>} />
+                <Route path="/todos" element={<TodoList/>} />
+                <Route path="/todos/:id" element={<SingleTodoView/>}/>
             </Routes>
-        </div>
         </Router>
     )
 }
