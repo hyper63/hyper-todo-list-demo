@@ -36,10 +36,23 @@ const _deleteTodo = (todo) => {
 }
 
 // Thunks
-export const getTodos = (todos) => {
+export const getTodos = () => {
   return async (dispatch) => {
     try {
-      const { data: allTodos } = await axios.get('/todos')
+      // const { data: allTodos } = await axios.get('/todos')
+      const allTodos = [
+        {
+          id: 1,
+          text: 'Do laundry',
+          completed: false
+        },
+        {
+          id: 2,
+          text: 'Mow Lawn',
+          completed: false
+        }
+      ]
+
       dispatch(_getTodos(allTodos))
     } catch (error) {
       console.log(error)

@@ -1,11 +1,10 @@
 import React from 'react'
-// import SingleTodoView from './SingleTodoView'
 
-const ListItem = (props) => {
-  const { item } = props
+const ListItem = ({ data, onClick }) => {
   return (
     <li>
-      {item}
+      {JSON.stringify(data)}
+      <button onClick={() => onClick(data.id)}>Complete</button>
     </li>
   )
 }

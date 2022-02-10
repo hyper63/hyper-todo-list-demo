@@ -1,36 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
 import ListItem from './ListItem'
-import { connect } from 'react-redux'
-import { getTodos } from '../store/todos'
 
-const TodoList = (props) => {
-  useEffect(() => {
-    async function getData () {
-      await props.getTodos()
-    }
-    getData()
-  })
-
-  const { todos } = props
-
+const TodoList = ({ todos, onTodoComplete, onRefresh }) => {
   return (
     <div>
       <ul>
-        {todos.map(todo => <ListItem {...todo} key={todo.id} />)}
+        {todos.map(todo => <ListItem key={todo.id} data={todo} onClick={onTodoComplete} />)}
       </ul>
+      <button onClick={onRefresh}>Refresh Todos</button>
     </div>
   )
 }
 
-const mapState = (state) => {
-  return {
-    todos: state.todos
-  }
-}
-
-const mapDispatch = (dispatch) => {
-  return {
-    getTodos: () => dispatch(getTodos())
-  }
-}
-export default connect(mapState, mapDispatch)(TodoList)
+export default TodoList
