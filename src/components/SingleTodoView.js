@@ -1,25 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {getSingleTodo} from '../store/singleTodo'
+// import { getSingleTodo } from '../store/singleTodo'
 
 const SingleTodoView = (props) => {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <div />
+  )
 }
 
 const mapState = (state) => {
-    return {
-        todo: state.todo
-    }
+  return {
+    todo: state.todo
+  }
 }
 
 const mapDispatch = (dispatch) => {
-    return {
-        
-    }
+  return {
+
+  }
 }
 
 export default connect(mapState, mapDispatch)(SingleTodoView)
