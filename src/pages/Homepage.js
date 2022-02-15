@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
+import { connect } from 'react-redux'
 
 const Homepage = (props) => {
   return (
@@ -13,4 +14,4 @@ const Homepage = (props) => {
   )
 }
 
-export default Homepage
+export default connect(null, null)(Homepage)
