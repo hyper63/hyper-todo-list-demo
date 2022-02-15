@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../store/todos'
-
-const seed = 999999
-
-const generateId = () => {
-  return Math.floor(Math.random() * seed)
-}
+import { nanoid } from 'nanoid'
 
 const Form = (props) => {
   const [value, setValue] = useState(' ')
+  const { addTodo } = props
   async function handleSubmit (event) {
     event.preventDefault()
-    const newTodo = { id: generateId(), item: value, done: false }
-    await props.addTodo(newTodo)
+    const newTodo = { id: nanoid(), item: value, done: false }
+    await addTodo(newTodo)
     setValue('')
   }
 
