@@ -5,6 +5,34 @@ import { connect } from 'react-redux'
 import { getTodos, addTodo, updateTodo, deleteTodo } from '../store/todos'
 import { getSingleTodo } from '../store/singleTodo'
 
+/*
+  getTodos, addTodo, updateTodo, deleteTodo are thunks from the Redux store.
+  They act upon the global todos array of objects
+  getSingleTodo is also a thun from the Redux store.  It however returns state as an object and
+  corresponds to a single todo item
+  A todo item has the following:
+   - id [STRING],
+   - task [STRING],
+   - completed [BOOLEAN]
+  Each thunk has corresponding dispatch in the Redux store
+  Here are the pairings:
+    getTodos      ---> refreshTasks
+    addTodo       ---> addTask
+    updateTodo    ---> editTask
+    deleteTodo    ---> deleteTask
+    getSingleTodo ---> getTask
+
+    Each dispatch function will be return as props to the Homepage component, which will then
+    send them down as props to the appropriate components
+
+    Form component will receive addTask dispatch as addTodo so that it can add a todo to the store
+    TodoList component will receive a number of props. They are indicated below:
+        - refreshTasks as refreshTodos, to refresh the todos list after changes have been made
+        - editTask as editTodo, deleteTask as deleteTodo, getTask as getTodo
+              - These will be sent down as props to lower components
+        - tasks as todos - this will provide the initial set of todos that are already stored in state
+*/
+
 const Homepage = (props) => {
   const {
     refreshTasks,
