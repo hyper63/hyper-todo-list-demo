@@ -2,6 +2,7 @@ import React from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
 import { connect } from 'react-redux'
+import { getTodos, addTodo, updateTodo, deleteTodo } from '../store/todos'
 
 const Homepage = (props) => {
   return (
@@ -14,4 +15,19 @@ const Homepage = (props) => {
   )
 }
 
-export default connect(null, null)(Homepage)
+const mapState = (state) => {
+  return {
+    tasks: state.todos
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    refreshTasks: () => dispatch(getTodos()),
+    addTask: (task) => dispatch(addTodo(task)),
+    editTask: (id) => dispatch(updateTodo(id)),
+    deleteTask: (id) => dispatch(deleteTodo(id))
+  }
+}
+
+export default connect(mapState, mapDispatch)(Homepage)
