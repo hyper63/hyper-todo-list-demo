@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ListItem from './ListItem'
 
 /*
@@ -19,20 +19,11 @@ import ListItem from './ListItem'
                           - completed
                     - editTodo - edits a single todo item
                     - deleteTodo - deletes a single todo item
-                    - getTodo - fetches a single todo from the Redux store. This item will also
-                                correspond to the react router route ('/todos/:id) with id being
-                                the id of the todo item
 
 */
 
 const TodoList = (props) => {
-  const { todos, editTodo, deleteTodo, getTodo, refreshTodos } = props
-  useEffect(() => {
-    async function fetchTodos () {
-      await refreshTodos()
-    }
-    fetchTodos()
-  }, todos)
+  const { todos, editTodo, deleteTodo } = props
 
   return (
     <div>
@@ -43,7 +34,7 @@ const TodoList = (props) => {
             key={todo.id}
             editTodo={editTodo}
             deleteTodo={deleteTodo}
-            getTodo={getTodo}
+
           />)}
       </ul>
     </div>

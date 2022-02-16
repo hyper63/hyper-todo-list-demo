@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
 import { connect } from 'react-redux'
@@ -42,6 +42,13 @@ const Homepage = (props) => {
     tasks,
     getTask
   } = props
+
+  useEffect(() => {
+    async function fetchTasks () {
+      await refreshTasks()
+    }
+    fetchTasks()
+  }, [])
 
   return (
     <div>
