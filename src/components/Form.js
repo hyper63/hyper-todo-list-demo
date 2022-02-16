@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../store/todos'
 import { nanoid } from 'nanoid'
+
+/*
+    component:  Form
+    purpose:    Form allows the user to add a new task to the list
+                It holds the value of text box in its internal state and
+                then updates the list with a new todo item
+    props:      inherits addTodo from Homepage
+
+*/
 
 const Form = (props) => {
   const [value, setValue] = useState(' ')
   const { addTodo } = props
   async function handleSubmit (event) {
     event.preventDefault()
-    const newTodo = { id: nanoid(), item: value, done: false }
+    const newTodo = { id: nanoid(), task: value, completed: false }
     await addTodo(newTodo)
     setValue('')
   }
@@ -24,9 +31,4 @@ const Form = (props) => {
   )
 }
 
-const mapDispatch = (dispatch) => {
-  return {
-    addTodo: (todo) => dispatch(addTodo(todo))
-  }
-}
-export default connect(null, mapDispatch)(Form)
+export default Form
