@@ -76,7 +76,7 @@ const mapDispatch = (dispatch) => {
   return {
     refreshTasks: () => dispatch(getTodos()),
     addTask: (task) => dispatch(addTodo(task)),
-    editTask: (id) => dispatch(updateTodo(id)),
+    editTask: (task) => dispatch(updateTodo(task)),
     deleteTask: (id) => dispatch(deleteTodo(id)),
     getTask: (id) => dispatch(getSingleTodo(id))
 

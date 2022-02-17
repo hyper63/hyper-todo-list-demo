@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import SingleTodoView from './components/SingleTodoView'
+import EditView from './components/EditView'
 import TodoList from './components/TodoList'
 import Homepage from './pages/Homepage'
 
@@ -17,7 +17,7 @@ function App () {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/todos' element={<TodoList />} />
-        <Route path='/todos/:id' element={<SingleTodoView />} />
+        <Route path='/todos/:id' element={<EditView />} />
       </Routes>
     </Router>
   )
