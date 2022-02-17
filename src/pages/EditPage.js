@@ -4,6 +4,18 @@ import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
 import { getSingleTodo } from '../store/getSingleTodo'
 
+/**
+    component: EditPage (page level)
+    props:     receives retrieveTask, update, id, todo,  from state stored in Redux store
+    children:  EditView
+                - EditView will receive update, id, task, completed from EditPage as props
+                   - update  ---> update
+                   - id      ---> spread from todo
+                   - task    ---> spread from todo
+                   - completed -> spread from todo
+
+ */
+
 const EditPage = (props) => {
   return (
     <div>
@@ -14,7 +26,7 @@ const EditPage = (props) => {
 
 const mapState = (state) => {
   return {
-    task: state.todo
+    todo: state.todo
   }
 }
 
