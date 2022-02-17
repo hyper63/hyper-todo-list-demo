@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
 import { connect } from 'react-redux'
@@ -8,7 +8,7 @@ import { getSingleTodo } from '../store/singleTodo'
 /*
   getTodos, addTodo, updateTodo, deleteTodo are thunks from the Redux store.
   They act upon the global todos array of objects
-  getSingleTodo is also a thun from the Redux store.  It however returns state as an object and
+  getSingleTodo is also a thunk from the Redux store.  It however returns state as an object and
   corresponds to a single todo item
   A todo item has the following:
    - id [STRING],
@@ -42,6 +42,13 @@ const Homepage = (props) => {
     tasks,
     getTask
   } = props
+
+  useEffect(() => {
+    async function fetchTasks () {
+      await refreshTasks()
+    }
+    fetchTasks()
+  }, [])
 
   return (
     <div>
