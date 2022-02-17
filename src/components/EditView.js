@@ -8,6 +8,20 @@ import React, { useState } from 'react'
                update corresponds to editTodo from ListItem
                id is the id of the task item
                task is the text of the todo
+    state:     EditView holds internal state values from the input box and checkbox
+               (todo, done respectively)
+               Those values are set using setter functions (setDone, setTodo)
+    methods:   handleChange - sets the value of the text entered into the text box into the
+                              todo state variable
+               handleChecked - sets the value of the checkbox to the status of the checked
+                               property
+               handleSubmit - prevents page from refreshing when Save button is pushed
+                              creates an object with id of current task with updated values
+                              task    --> todo state value
+                              checked --> done state value
+                              update function called with updated todo value (updatedTodo)
+                              which dispatches an action to Redux which then makes a request
+                              to the backend API with the updated values
 
  */
 
@@ -28,7 +42,7 @@ const EditView = (props) => {
     event.preventDefault()
     const updatedTodo = { id, task: todo, completed: done }
     try {
-      await update(...updatedTodo)
+      await update({ ...updatedTodo })
     } catch (error) {
       console.log(error.message)
     }
