@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
@@ -17,6 +17,14 @@ import { getSingleTodo } from '../store/getSingleTodo'
  */
 
 const EditPage = (props) => {
+  const { id } = props.match.params
+  const { retrieveTask } = props
+  useEffect(() => {
+    async function fetchTodo () {
+      await retrieveTask(id)
+    }
+    fetchTodo()
+  }, [])
   return (
     <div>
       <EditView />
