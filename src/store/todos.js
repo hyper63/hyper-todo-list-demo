@@ -36,7 +36,7 @@ const _deleteTodo = (todo) => {
 }
 
 // Thunks
-export const getTodos = (todos) => {
+export const getTodos = () => {
   return async (dispatch) => {
     try {
       const { data: allTodos } = await axios.get('/todos')
