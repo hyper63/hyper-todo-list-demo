@@ -7,6 +7,10 @@ import { getSingleTodo } from '../store/getSingleTodo'
 /**
     component: EditPage (page level)
     props:     receives retrieveTask, update, id, todo,  from state stored in Redux store
+               retrieveTask and update havethe following mappings:
+               - retrieveTask ---> getSingleTodo ( thunk we get from Redux, returns a single object )
+               - update       ---> updateTodo ( thunk we get from Redux, updates store with updated object)
+
     children:  EditView
                 - EditView will receive update, id, task, completed from EditPage as props
                    - update  ---> update
