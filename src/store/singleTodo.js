@@ -14,7 +14,7 @@ const _getSingleTodo = (todo) => {
 export const getSingleTodo = (id) => {
   return async (dispatch) => {
     try {
-      const { data: todo } = await axios.get(`/todos/${id}`)
+      const { data: todo } = await axios.get(`/api/todos/${id}`)
       dispatch(_getSingleTodo(todo))
     } catch (error) {
       console.log(error)
