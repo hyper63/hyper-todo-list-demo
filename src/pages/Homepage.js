@@ -47,11 +47,13 @@ const Homepage = (props) => {
     <div>
       <h1>Task Master</h1>
       <Form addTodo={addTask} />
-      <TodoList
-        refreshTodos={refreshTasks}
-        deleteTodo={deleteTask}
-        todos={tasks}
-      />
+      {tasks.length > 0
+        ? <TodoList
+            refreshTodos={refreshTasks}
+            deleteTodo={deleteTask}
+            todos={tasks}
+          />
+        : <h4>No Tasks Added</h4>}
       <footer>All Rights Reserved &copy;2022</footer>
     </div>
   )
