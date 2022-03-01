@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { nanoid } from 'nanoid'
 
 /*
     component:  Form
@@ -15,7 +14,7 @@ const Form = (props) => {
   const { addTodo } = props
   async function handleSubmit (event) {
     event.preventDefault()
-    const newTodo = { id: nanoid(), task: value, completed: false }
+    const newTodo = { task: value, completed: false }
     await addTodo(newTodo)
     setValue('')
   }
