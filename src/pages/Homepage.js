@@ -47,7 +47,7 @@ const Homepage = (props) => {
     <div>
       <h1>Task Master</h1>
       <Form addTodo={addTask} />
-      {tasks.length > 0
+      {tasks && tasks.length > 0
         ? <TodoList
             refreshTodos={refreshTasks}
             deleteTodo={deleteTask}
