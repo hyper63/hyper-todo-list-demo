@@ -3,6 +3,16 @@ const { connect } = require('hyper-connect')
 const hyper = connect(process.env.HYPER)
 
 module.exports = async function createTodos (req, res) {
-  const result = await hyper.data.add(req.body)
-  res.json(result)
+  console.log(req.body)
+  try {
+    if (!req.body.task) {
+      res.status(400).json({ message: 'Add a new task' })
+    } else {
+      const newTodo = { task: req.body.task, completed: req.body.completed }
+      const result = await hyper.data.add(newTodo)
+      res.json(result)
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Unable to create a new task', error })
+  }
 }
