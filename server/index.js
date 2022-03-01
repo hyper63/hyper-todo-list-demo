@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+require('dotenv').config()
 
 const handleCreate = require('./routes/createTodos')
 const handleDelete = require('./routes/deleteTodo')
 const handleList = require('./routes/getAllTodos')
-const handleSingleTodo = require('./routes/getSingleTodos')
-const handleUpdate = require('./routes/updateTodos')
+const handleSingleTodo = require('./routes/getSingleTodo')
+const handleUpdate = require('./routes/updateTodo')
 // const { todoRouter } = require('./routes')
 
 const PORT = 3010

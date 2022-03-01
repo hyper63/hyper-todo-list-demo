@@ -1,5 +1,4 @@
 const { connect } = require('hyper-connect')
-require('dotenv').config()
 
 const hyper = connect(process.env.HYPER)
 
