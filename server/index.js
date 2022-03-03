@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const morgan = require('morgan')
+const helmet = require('helmet')
+const cors = require('cors')
 require('dotenv').config()
 
 const handleCreate = require('./routes/createTodos')
@@ -17,6 +20,11 @@ app.use(express.static(path.resolve(__dirname, '../build')))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.use(morgan('dev'))
+app.use(helmet())
+app.use(cors())
+
 // app.use('/api/todos', todoRouter)
 app.get('/api/todos', handleList)
 app.post('/api/todos', handleCreate)

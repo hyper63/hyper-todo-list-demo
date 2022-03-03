@@ -1,4 +1,5 @@
 const { connect } = require('hyper-connect')
+const { nanoid } = require('nanoid')
 
 const hyper = connect(process.env.HYPER)
 
@@ -8,7 +9,7 @@ module.exports = async function createTodos (req, res) {
     if (!req.body.task) {
       res.status(400).json({ message: 'Add a new task' })
     } else {
-      const newTodo = { task: req.body.task, completed: req.body.completed }
+      const newTodo = { id: nanoid(), task: req.body.task, completed: req.body.completed }
       const result = await hyper.data.add(newTodo)
       res.json(result)
     }
