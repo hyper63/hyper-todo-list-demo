@@ -5,5 +5,5 @@ const todoSchema = z.object({
   task: z.string(),
   completed: z.boolean()
 })
-// type Todo = z.infer<typeof todoSchema>
+type Todo = z.infer<typeof todoSchema>
 module.exports = todoSchema
