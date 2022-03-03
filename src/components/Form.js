@@ -14,7 +14,7 @@ const Form = (props) => {
   const { addTodo } = props
   async function handleSubmit (event) {
     event.preventDefault()
-    const newTodo = { task: value, completed: false }
+    const newTodo = { task: value, type: 'todo', completed: false }
     await addTodo(newTodo)
     setValue('')
   }
