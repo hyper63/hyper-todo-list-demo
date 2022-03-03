@@ -1,5 +1,5 @@
 const { connect } = require('hyper-connect')
-
+const Todo = require('../data/models')
 const hyper = connect(process.env.HYPER)
 
 module.exports = async function updateTodo (req, res) {
@@ -12,8 +12,11 @@ module.exports = async function updateTodo (req, res) {
       if (!req.body.task) {
         res.status(400).json({ message: 'Task needs to contain text' })
       } else {
-        const result = await hyper.data.update(id, req.body)
-        res.json(result)
+        const validatedTodo = await Todo.validateAsync(req.body)
+        if (validatedTodo) {
+          const result = await hyper.data.update(id, validatedTodo)
+          res.json(result)
+        }
       }
     }
   } catch (error) {
