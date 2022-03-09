@@ -13,8 +13,10 @@ module.exports = async function createTodos (req, res) {
       const newTodo = { id: nanoid(), type: req.body.type, task: req.body.task, completed: req.body.completed }
       try {
         const validatedTodo = await Todo.validateAsync(newTodo)
-        const result = await hyper.data.add(validatedTodo)
-        res.json(result)
+        if (validatedTodo) {
+          const result = await hyper.data.add(validatedTodo)
+          res.json(result)
+        }
       } catch (error) {
         console.log(error)
       }
