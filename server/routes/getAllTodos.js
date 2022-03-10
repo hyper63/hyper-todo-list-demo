@@ -7,7 +7,11 @@ module.exports = async function getAllTodos (req, res) {
     // const { docs } = await hyper.data.list()
     // const todos = docs.filter(item => item.type === 'todo')
     const { docs } = await hyper.data.query({ type: 'todo' })
-    res.json(docs)
+    if (docs) {
+      res.json(docs)
+    } else {
+      res.status(404).json({ message: 'No tasks found' })
+    }
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong', error })
   }
