@@ -23,9 +23,9 @@ const Form = (props) => {
     setValue(event.target.value)
   }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input type='text' name='task' placeholder='Enter a new task' onChange={handleChange} />
-      <button type='submit' onSubmit={() => handleSubmit()}>Add</button>
+      <button type='submit'>Add</button>
     </form>
   )
 }

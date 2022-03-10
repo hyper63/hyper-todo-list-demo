@@ -25,7 +25,7 @@ const ListItem = (props) => {
       <li>
         <div>{task}</div>
         <div>
-          <button type='button' name='delete' onClick={() => remove(id)}>Delete Task</button>
+          <button type='button' name='delete' onClick={() => remove(id)}>Delete</button>
         </div>
       </li>
     </Link>
