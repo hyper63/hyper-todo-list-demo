@@ -21,14 +21,12 @@ const ListItem = (props) => {
     }
   }
   return (
-    <Link to={`/todos/${id}`}>
-      <li>
-        <div>{task}</div>
-        <div>
-          <button type='button' name='delete' onClick={() => remove(id)}>Delete</button>
-        </div>
-      </li>
-    </Link>
+    <li>
+      <div><Link to={`/todos/${id}`}>{task}</Link></div>
+      <div>
+        <button type='button' name='delete' onClick={() => remove(id)}>Delete</button>
+      </div>
+    </li>
 
   )
 }
