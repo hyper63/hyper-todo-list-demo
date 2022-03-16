@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 /*
     component: EditView
@@ -29,6 +30,7 @@ const EditView = (props) => {
   const { update, id, task } = props
   const [todo, setTodo] = useState('')
   const [done, setDone] = useState(false)
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setTodo(event.target.value)
@@ -46,7 +48,7 @@ const EditView = (props) => {
     } catch (error) {
       console.log(error.message)
     }
-    //
+    navigate(-1)
   }
   return (
     <form onSubmit={handleSubmit}>
