@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
+import { useParams } from 'react-router-dom'
 import { getSingleTodo } from '../store/singleTodo'
 
 /**
@@ -21,8 +22,11 @@ import { getSingleTodo } from '../store/singleTodo'
  */
 
 const EditPage = (props) => {
-  const { id } = props.match.params
+
+  const params = useParams()
+  const { id } = params
   const { retrieveTask, todo, update } = props
+
   useEffect(() => {
     async function fetchTodo () {
       await retrieveTask(id)
