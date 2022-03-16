@@ -22,7 +22,7 @@ import { getSingleTodo } from '../store/singleTodo'
 
 const EditPage = (props) => {
   const { id } = props.match.params
-  const { retrieveTask } = props
+  const { retrieveTask, todo, update } = props
   useEffect(() => {
     async function fetchTodo () {
       await retrieveTask(id)
@@ -31,7 +31,7 @@ const EditPage = (props) => {
   }, [])
   return (
     <div>
-      <EditView />
+      <EditView id={id} update={update} task={todo} />
     </div>
   )
 }
