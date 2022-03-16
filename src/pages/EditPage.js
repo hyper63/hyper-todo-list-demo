@@ -3,6 +3,7 @@ import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
 import { getSingleTodo } from '../store/getSingleTodo'
+import { useParams } from 'react-router-dom'
 
 /**
     component: EditPage (page level)
@@ -21,7 +22,8 @@ import { getSingleTodo } from '../store/getSingleTodo'
  */
 
 const EditPage = (props) => {
-  const { id } = props.match.params
+  const params = useParams()
+  const { id } = params
   const { retrieveTask } = props
   useEffect(() => {
     async function fetchTodo () {
