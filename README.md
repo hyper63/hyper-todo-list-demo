@@ -2,11 +2,11 @@
 A demo using hyper to create a persistent todo list
 
 ### User Stories
-[ ] - It allows the user to add a new task <br>
+[X] - It allows the user to add a new task <br>
 [ ] - It allows the user to delete a task <br>
 [ ] - It allows the user to edit a task <br>
-[ ] - It allows the user to view all current tasks <br>
-[ ] - Data persists when the user closes and reopens application
+[X] - It allows the user to view all current tasks <br>
+[X] - Data persists when the user closes and reopens application
 
 ### Enhancements (Stretch Goals)
 [ ] - Use a design system to improve the styling <br>
