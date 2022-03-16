@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
-import { getSingleTodo } from '../store/getSingleTodo'
 import { useParams } from 'react-router-dom'
+import { getSingleTodo } from '../store/singleTodo'
 
 /**
     component: EditPage (page level)
@@ -22,9 +22,11 @@ import { useParams } from 'react-router-dom'
  */
 
 const EditPage = (props) => {
+
   const params = useParams()
   const { id } = params
-  const { retrieveTask } = props
+  const { retrieveTask, todo, update } = props
+
   useEffect(() => {
     async function fetchTodo () {
       await retrieveTask(id)
@@ -33,7 +35,7 @@ const EditPage = (props) => {
   }, [])
   return (
     <div>
-      <EditView />
+      <EditView id={id} update={update} task={todo} />
     </div>
   )
 }
