@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
-import { getSingleTodo } from '../store/getSingleTodo'
+import { getSingleTodo } from '../store/singleTodo'
 
 /**
     component: EditPage (page level)
