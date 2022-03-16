@@ -3,6 +3,7 @@ import EditView from '../components/EditView'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
 import { getSingleTodo } from '../store/getSingleTodo'
+import { useNavigate } from 'react-router-dom'
 
 /**
     component: EditPage (page level)
@@ -21,17 +22,23 @@ import { getSingleTodo } from '../store/getSingleTodo'
  */
 
 const EditPage = (props) => {
+  const navigate = useNavigate()
   const { id } = props.match.params
-  const { retrieveTask } = props
+  const { retrieveTask, updateTask } = props
   useEffect(() => {
     async function fetchTodo () {
       await retrieveTask(id)
     }
     fetchTodo()
   }, [])
+
+  const update = async (todo) => {
+    await updateTask(todo)
+    navigate(-1)
+  }
   return (
     <div>
-      <EditView />
+      <EditView update={update} />
     </div>
   )
 }
@@ -45,7 +52,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     retrieveTask: (id) => dispatch(getSingleTodo(id)),
-    update: (todo) => dispatch(updateTodo(todo))
+    updateTask: (todo) => dispatch(updateTodo(todo))
   }
 }
 export default connect(mapState, mapDispatch)(EditPage)
