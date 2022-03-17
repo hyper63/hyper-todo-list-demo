@@ -71,7 +71,7 @@ export const updateTodo = (todo) => {
 export const deleteTodo = (id) => {
   return async (dispatch) => {
     try {
-      const { data: deleted } = await axios.delete(`/api/todos/:${id}`)
+      const { data: deleted } = await axios.delete(`/api/todos/${id}`)
       dispatch(_deleteTodo(deleted))
     } catch (error) {
       console.log(error)
