@@ -4,8 +4,8 @@ const hyper = connect(process.env.HYPER)
 
 module.exports = async function updateTodo (req, res) {
   try {
-    const { id } = req.params
-    const task = await hyper.data.get(id)
+    const { _id } = req.params
+    const task = await hyper.data.get(_id)
     if (!task) {
       res.status(404).json({ message: 'Task does not exist' })
     } else {
@@ -14,7 +14,7 @@ module.exports = async function updateTodo (req, res) {
       } else {
         const validatedTodo = await Todo.validateAsync(req.body)
         if (validatedTodo) {
-          const result = await hyper.data.update(id, validatedTodo)
+          const result = await hyper.data.update(_id, validatedTodo)
           res.json(result)
         }
       }
