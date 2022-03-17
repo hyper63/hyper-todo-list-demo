@@ -4,11 +4,11 @@ const hyper = connect(process.env.HYPER)
 
 module.exports = async function deleteTodos (req, res) {
   try {
-    const todo = await hyper.data.get(req.params.id)
+    const todo = await hyper.data.get(req.params._id)
     if (!todo) {
       res.status(404).json({ message: 'Task not found' })
     } else {
-      const result = await hyper.data.remove(req.params.id)
+      const result = await hyper.data.remove(req.params._id)
       res.json(result)
     }
   } catch (error) {
