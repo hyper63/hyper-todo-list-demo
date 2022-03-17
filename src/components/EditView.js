@@ -46,7 +46,6 @@ const EditView = (props) => {
     } catch (error) {
       console.log(error.message)
     }
-    //
   }
   return (
     <form onSubmit={handleSubmit}>
