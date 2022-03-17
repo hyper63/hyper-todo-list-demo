@@ -12,7 +12,7 @@ import ListItem from './ListItem'
     Children: ListItem
                 - ListItem will receive as props from TodoList the following:
                     - all of the properties of each individual todo
-                          - id,
+                          - _id,
                           - task,
                           - completed
                           - deleteTodo - deletes a single todo item
@@ -28,7 +28,7 @@ const TodoList = (props) => {
         {todos.map(todo =>
           <ListItem
             {...todo}
-            key={todo.id}
+            key={todo._id}
             deleteTodo={deleteTodo}
 
           />)}
