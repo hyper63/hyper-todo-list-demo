@@ -26,7 +26,7 @@ import React, { useState } from 'react'
  */
 
 const EditView = (props) => {
-  const { update, _id, task } = props
+  const { update, id, task } = props
   const [todo, setTodo] = useState('')
   const [done, setDone] = useState(false)
 
@@ -40,7 +40,7 @@ const EditView = (props) => {
 
   async function handleSubmit (event) {
     event.preventDefault()
-    const updatedTodo = { _id, task: todo, completed: done }
+    const updatedTodo = { _id: id, task: todo, completed: done }
     try {
       await update({ ...updatedTodo })
     } catch (error) {
