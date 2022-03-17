@@ -10,7 +10,7 @@ module.exports = async function createTodos (req, res) {
     if (!req.body.task) {
       res.status(400).json({ message: 'Add a new task' })
     } else {
-      const newTodo = { id: nanoid(), type: req.body.type, task: req.body.task, completed: req.body.completed }
+      const newTodo = { _id: nanoid(), type: req.body.type, task: req.body.task, completed: req.body.completed }
       try {
         const validatedTodo = await Todo.validateAsync(newTodo)
         if (validatedTodo) {
