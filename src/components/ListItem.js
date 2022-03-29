@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom'
 
 const ListItem = (props) => {
   const { _id, task, remove } = props
-
   return (
     <li>
       <div><Link to={`/todos/${_id}`}>{task}</Link></div>
