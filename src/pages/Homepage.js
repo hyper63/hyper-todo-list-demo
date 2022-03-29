@@ -43,6 +43,13 @@ const Homepage = (props) => {
     fetchTasks()
   }, [])
 
+  async function remove (id) {
+    try {
+      await deleteTask(id)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
       <h1>Task Master</h1>
@@ -50,7 +57,7 @@ const Homepage = (props) => {
       {tasks && tasks.length > 0
         ? <TodoList
             refreshTodos={refreshTasks}
-            deleteTodo={deleteTask}
+            remove={remove}
             todos={tasks}
           />
         : <h4>No Tasks Added</h4>}
