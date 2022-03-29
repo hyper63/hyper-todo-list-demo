@@ -29,6 +29,7 @@ const EditView = (props) => {
   const { update, id, task } = props
   const [todo, setTodo] = useState('')
   const [done, setDone] = useState(false)
+  console.log('Id: ', id)
 
   const handleChange = (event) => {
     setTodo(event.target.value)

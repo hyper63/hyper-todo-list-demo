@@ -33,14 +33,14 @@ const EditPage = (props) => {
     }
     fetchTodo()
   }, [])
-
+  console.log(todo)
   const update = async (todo) => {
     await updateTask(todo)
     navigate(-1)
   }
   return (
     <div>
-      <EditView id={id} update={update} task={todo} />
+      <EditView id={id} update={update} task={todo.task} completed={todo.completed} />
     </div>
   )
 }
