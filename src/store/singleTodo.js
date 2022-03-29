@@ -12,9 +12,13 @@ const _getSingleTodo = (todo) => {
 
 // Thunk
 export const getSingleTodo = (id) => {
+  const _id = id
+  console.log('Thunk (getSingleTodo): ', _id)
   return async (dispatch) => {
     try {
-      const { data: todo } = await axios.get(`/api/todos/${id}`)
+      const { data: result } = await axios.get(`/api/todos/${_id}`)
+      const todo = result
+      console.log('Todo inside thunk (getSingleTodo): ', todo)
       dispatch(_getSingleTodo(todo))
     } catch (error) {
       console.log(error)
