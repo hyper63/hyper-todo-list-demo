@@ -5,21 +5,13 @@ import { Link } from 'react-router-dom'
 /*
   component: ListItem
   purpose:   ListItem will display each individual task item in li
-  props:     deleteTodo, id, task, completed (received from TodoList)
+  props:     remove, id, task (received from TodoList)
   children:  EditView
 
 */
 
 const ListItem = (props) => {
-  const { _id, task, deleteTodo } = props
-
-  async function remove (id) {
-    try {
-      await deleteTodo(id)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const { _id, task, remove } = props
   return (
     <li>
       <div><Link to={`/todos/${_id}`}>{task}</Link></div>

@@ -29,8 +29,9 @@ app.use(cors())
 app.get('/api/todos', handleList)
 app.post('/api/todos', handleCreate)
 app.get('/api/todos/:_id', handleSingleTodo)
-app.put('/api/todos/:id', handleUpdate)
-app.delete('/api/todos/:id', handleDelete)
+app.put('/api/todos/:_id', handleUpdate)
+app.delete('/api/todos/:_id', handleDelete)
+
 
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello World' })
