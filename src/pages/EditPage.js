@@ -29,8 +29,7 @@ const EditPage = (props) => {
 
   useEffect(() => {
     async function fetchTodo () {
-      const task = await retrieveTask(id)
-      console.log('Task inside useEffect: ', task)
+      await retrieveTask(id)
     }
     fetchTodo()
   }, [])
