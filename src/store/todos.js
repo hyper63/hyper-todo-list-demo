@@ -57,10 +57,12 @@ export const addTodo = (todo) => {
   }
 }
 export const updateTodo = (todo) => {
-  const { id } = todo
+  const { _id } = todo
+  console.log('_id inside thunk (updateTodo): ', _id)
   return async (dispatch) => {
     try {
-      const { data: updated } = await axios.put(`/api/todos/${id}`, todo)
+      const { data: updated } = await axios.put(`/api/todos/${_id}`, todo)
+      console.log('Updated inside thunk (updateTodo): ', todo)
       dispatch(_updateTodo(updated))
     } catch (error) {
       console.log(error)
