@@ -14,8 +14,10 @@ const ListItem = (props) => {
   const { _id, task, deleteTodo } = props
 
   async function remove (id) {
+    console.log(id)
     try {
-      await deleteTodo(id)
+      const deleted = await deleteTodo(id)
+      console.log(deleted)
     } catch (error) {
       console.log(error)
     }
