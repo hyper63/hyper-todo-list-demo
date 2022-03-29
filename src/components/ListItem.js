@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 */
 
 const ListItem = (props) => {
-  const { id, task, deleteTodo } = props
+  const { _id, task, deleteTodo } = props
 
   async function remove (id) {
     try {
@@ -22,9 +22,9 @@ const ListItem = (props) => {
   }
   return (
     <li>
-      <div><Link to={`/todos/${id}`}>{task}</Link></div>
+      <div><Link to={`/todos/${_id}`}>{task}</Link></div>
       <div>
-        <button type='button' name='delete' onClick={() => remove(id)}>Delete</button>
+        <button type='button' name='delete' onClick={() => remove(_id)}>Delete</button>
       </div>
     </li>
 

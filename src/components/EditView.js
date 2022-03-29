@@ -40,7 +40,7 @@ const EditView = (props) => {
 
   async function handleSubmit (event) {
     event.preventDefault()
-    const updatedTodo = { id, task: todo, completed: done }
+    const updatedTodo = { _id: id, task: todo, completed: done }
     try {
       await update({ ...updatedTodo })
     } catch (error) {

@@ -4,7 +4,7 @@ const hyper = connect(process.env.HYPER)
 
 module.exports = async function getSingleTodo (req, res) {
   try {
-    const result = await hyper.data.get(req.params.id)
+    const result = await hyper.data.get(req.params._id)
     if (result) {
       res.json(result)
     } else {
