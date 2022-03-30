@@ -26,7 +26,7 @@ import React, { useState } from 'react'
  */
 
 const EditView = (props) => {
-  const { update, task } = props
+  const { update, task, completed } = props
   const [todo, setTodo] = useState(task)
   const [done, setDone] = useState(false)
 
@@ -52,9 +52,14 @@ const EditView = (props) => {
       <label htmlFor='task' />
       <input placeholder={task} value={todo} onChange={handleChange} name='task' />
       <label htmlFor='completed'>Task Completed: </label>
-      <input type='checkbox' name='completed' onChange={handleChecked} />
+      <input
+        type='checkbox'
+        name='completed'
+        onChange={handleChecked}
+        value={done}
+        checked={completed}
+      />
       <button>Save</button>
-
     </form>
   )
 }
