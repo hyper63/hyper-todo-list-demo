@@ -26,12 +26,10 @@ import React, { useState } from 'react'
  */
 
 const EditView = (props) => {
-  const { update, id, task } = props
+  const { update, task } = props
   const [todo, setTodo] = useState(task)
   const [done, setDone] = useState(false)
-  console.log('Id: ', id)
 
-  console.log(todo)
   const handleChange = (event) => {
     setTodo(event.target.value)
   }
@@ -42,12 +40,9 @@ const EditView = (props) => {
 
   async function handleSubmit (event) {
     event.preventDefault()
-    console.log(todo)
     const updatedTodo = { task: todo || task, completed: done }
-    console.log('Updated object before call to thunk (editView): ', updatedTodo)
     try {
-      const updated = await update({ ...updatedTodo })
-      console.log('Updated object after thunk call (editView): ', updated)
+      await update({ ...updatedTodo })
     } catch (error) {
       console.log(error.message)
     }

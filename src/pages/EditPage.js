@@ -35,12 +35,8 @@ const EditPage = (props) => {
   }, [])
   console.log(todo)
   const update = async (todoUpdates) => {
-    console.log(todo)
-    console.log(todoUpdates)
     const updatedTodo = { ...todo, ...todoUpdates }
-    console.log('Updated Todo before thunk call (EditPage): ', updatedTodo)
-    const updated = await updateTask(updatedTodo)
-    console.log('Updated todo after thunk call (EditPage): ', updated)
+    await updateTask(updatedTodo)
     navigate(-1)
   }
   return (
