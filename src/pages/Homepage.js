@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { connect } from 'react-redux'
 import { getTodos, addTodo, deleteTodo } from '../store/todos'
 import { Box } from '@chakra-ui/react'
@@ -53,7 +55,7 @@ const Homepage = (props) => {
   }
   return (
     <Box>
-      <h1>Task Master</h1>
+      <Header name='Task Master' />
       <Form addTodo={addTask} />
       {tasks && tasks.length > 0
         ? <TodoList
@@ -62,7 +64,7 @@ const Homepage = (props) => {
             todos={tasks}
           />
         : <h4>No Tasks Added</h4>}
-      <footer>All Rights Reserved &copy;2022</footer>
+      <Footer />
     </Box>
   )
 }
