@@ -54,7 +54,16 @@ const Homepage = (props) => {
     }
   }
   return (
-    <Box>
+    <Box
+      boxSize='md'
+      border='2px'
+      borderRadius='md'
+      rounded='md'
+      boxShadow='outline'
+      bg='#f5f5dc'
+      m={8}
+      p={4}
+    >
       <Header name='Task Master' />
       <Form addTodo={addTask} />
       {tasks && tasks.length > 0
