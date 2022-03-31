@@ -3,6 +3,7 @@ import Form from '../components/Form'
 import TodoList from '../components/TodoList'
 import { connect } from 'react-redux'
 import { getTodos, addTodo, deleteTodo } from '../store/todos'
+import { Box } from '@chakra-ui/react'
 
 /*
   getTodos, addTodo, deleteTodo are thunks from the Redux store.
@@ -51,7 +52,7 @@ const Homepage = (props) => {
     }
   }
   return (
-    <div>
+    <Box>
       <h1>Task Master</h1>
       <Form addTodo={addTask} />
       {tasks && tasks.length > 0
@@ -62,7 +63,7 @@ const Homepage = (props) => {
           />
         : <h4>No Tasks Added</h4>}
       <footer>All Rights Reserved &copy;2022</footer>
-    </div>
+    </Box>
   )
 }
 
