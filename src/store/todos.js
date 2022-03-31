@@ -57,10 +57,10 @@ export const addTodo = (todo) => {
   }
 }
 export const updateTodo = (todo) => {
-  const { id } = todo
+  const { _id } = todo
   return async (dispatch) => {
     try {
-      const { data: updated } = await axios.put(`/api/todos/${id}`, todo)
+      const { data: updated } = await axios.put(`/api/todos/${_id}`, todo)
       dispatch(_updateTodo(updated))
     } catch (error) {
       console.log(error)
