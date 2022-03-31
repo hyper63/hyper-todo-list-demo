@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Flex, Button, Input } from '@chakra-ui/react'
 
 /*
     component: EditView
@@ -49,17 +50,39 @@ const EditView = (props) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor='task' />
-      <input placeholder={task} value={todo} onChange={handleChange} name='task' />
-      <label htmlFor='completed'>Task Completed: </label>
-      <input
-        type='checkbox'
-        name='completed'
-        onChange={handleChecked}
-        value={done}
-        checked={completed}
-      />
-      <button>Save</button>
+      <Flex p='10px' direction='column' align='center' justify='center'>
+        <label htmlFor='task'>Task: </label>
+        <Input
+          placeholder={task}
+          value={todo}
+          onChange={handleChange}
+          name='task'
+          variant='outline'
+          size='md'
+          _placeholder={{ opacity: 0.4, color: 'blue.300' }}
+        />
+        <label htmlFor='completed'>Task Completed: </label>
+        <input
+          type='checkbox'
+          name='completed'
+          onChange={handleChecked}
+          value={done}
+          checked={completed}
+        />
+        <Button
+          size='md'
+          variant='solid'
+          border='1px'
+          color='#f5f5dc'
+          bg='blue.500'
+          _hover={{
+            color: 'blue',
+            bg: '#f5f5dc',
+            transform: 'scale(1.1)'
+          }}
+        >Save
+        </Button>
+      </Flex>
     </form>
   )
 }
