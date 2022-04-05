@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import Form from '../components/Form'
 import TodoList from '../components/TodoList'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { connect } from 'react-redux'
 import { getTodos, addTodo, deleteTodo } from '../store/todos'
+import { Box } from '@chakra-ui/react'
 
 /*
   getTodos, addTodo, deleteTodo are thunks from the Redux store.
@@ -51,8 +54,17 @@ const Homepage = (props) => {
     }
   }
   return (
-    <div>
-      <h1>Task Master</h1>
+    <Box
+      boxSize='md'
+      border='2px'
+      borderRadius='md'
+      rounded='md'
+      boxShadow='outline'
+      bg='#f5f5dc'
+      m={8}
+      p={4}
+    >
+      <Header name='Task Master' />
       <Form addTodo={addTask} />
       {tasks && tasks.length > 0
         ? <TodoList
@@ -61,8 +73,8 @@ const Homepage = (props) => {
             todos={tasks}
           />
         : <h4>No Tasks Added</h4>}
-      <footer>All Rights Reserved &copy;2022</footer>
-    </div>
+      <Footer />
+    </Box>
   )
 }
 

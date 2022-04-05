@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import EditView from '../components/EditView'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -41,7 +43,9 @@ const EditPage = (props) => {
   }
   return (
     <div>
+      <Header name='Edit Task' />
       <EditView id={id} update={update} task={todo.task} completed={todo.completed} />
+      <Footer />
     </div>
   )
 }
