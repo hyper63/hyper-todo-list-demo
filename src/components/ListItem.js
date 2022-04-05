@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom'
 */
 
 const ListItem = (props) => {
-  const { _id, task, remove } = props
+  const { _id, task, remove, completed } = props
   return (
-    <li>
+    <li class={completed ? 'completed' : ''}>
       <div><Link to={`/todos/${_id}`}>{task}</Link></div>
       <div>
         <button type='button' name='delete' onClick={() => remove(_id)}>Delete</button>
