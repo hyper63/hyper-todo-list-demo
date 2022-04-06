@@ -1,6 +1,6 @@
 import React from 'react'
-import ListItem from './ListItem'
 import { List, Box } from '@chakra-ui/react'
+import TaskItem from './ListItem'
 
 /*
   TodoList component
@@ -10,8 +10,8 @@ import { List, Box } from '@chakra-ui/react'
               - todos - list of todos held in state (Redux store)
               - remove - deletes a todo from the list
               - refreshTodos - updates to the current list of todos after a change been made
-    Children: ListItem
-                - ListItem will receive as props from TodoList the following:
+    Children: TaskItem
+                - TaskItem will receive as props from TodoList the following:
                     - all of the properties of each individual todo
                           - _id,
                           - task,
@@ -26,7 +26,7 @@ const TodoList = (props) => {
     <Box>
       <List spacing={3}>
         {todos.map(todo =>
-          <ListItem
+          <TaskItem
             {...todo}
             key={todo._id}
             remove={remove}
