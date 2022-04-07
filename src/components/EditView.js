@@ -50,27 +50,34 @@ const EditView = (props) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Flex p='10px' direction='column' align='center' justify='center'>
-        <label htmlFor='task'>Task: </label>
-        <Input
-          placeholder={task}
-          value={todo}
-          onChange={handleChange}
-          name='task'
-          variant='outline'
-          size='md'
-          _placeholder={{ opacity: 0.4, color: 'blue.300' }}
-        />
-        <label htmlFor='completed'>Task Completed: </label>
-        <input
-          type='checkbox'
-          name='completed'
-          onChange={handleChecked}
-          value={done}
-          checked={completed}
-        />
+      <Flex p='10px' direction='column' align='center' justify='space-around'>
+        <Flex justify='space-between' p={3} align='baseline'>
+          <label htmlFor='task'>Task: </label>
+          <Input
+            placeholder={task}
+            value={todo}
+            onChange={handleChange}
+            name='task'
+            variant='outline'
+            size='md'
+            marginLeft={4}
+            _placeholder={{ opacity: 0.4, color: 'blue.300' }}
+          />
+        </Flex>
+        <Flex>
+          <label htmlFor='completed'>Task Completed: </label>
+          <input
+            type='checkbox'
+            name='completed'
+            onChange={handleChecked}
+            value={done}
+            checked={completed}
+          />
+        </Flex>
         <Button
           size='md'
+          m={5}
+          marginTop='10px'
           variant='solid'
           border='1px'
           color='#f5f5dc'
