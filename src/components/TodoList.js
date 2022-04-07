@@ -1,4 +1,5 @@
 import React from 'react'
+import { List, Box } from '@chakra-ui/react'
 import TaskItem from './ListItem'
 
 /*
@@ -22,8 +23,8 @@ const TodoList = (props) => {
   const { todos, remove } = props
 
   return (
-    <div>
-      <ul>
+    <Box>
+      <List spacing={3}>
         {todos.map(todo =>
           <TaskItem
             {...todo}
@@ -31,8 +32,8 @@ const TodoList = (props) => {
             remove={remove}
 
           />)}
-      </ul>
-    </div>
+      </List>
+    </Box>
   )
 }
 
