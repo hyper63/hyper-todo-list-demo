@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Flex, Button, Input, FormLabel, Checkbox } from '@chakra-ui/react'
-
 /*
     component: EditView
     purpose:   the purpose of EditView is to edit the text and completion status of the task
