@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Flex, Button, Input, FormLabel, Checkbox } from '@chakra-ui/react'
 
-
 /*
     component: EditView
     purpose:   the purpose of EditView is to edit the text and completion status of the task
@@ -76,6 +75,7 @@ const EditView = (props) => {
           />
         </Flex>
         <Button
+          type='submit'
           size='md'
           m={5}
           marginTop='10px'
