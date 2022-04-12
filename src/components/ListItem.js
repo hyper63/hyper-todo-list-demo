@@ -14,7 +14,7 @@ import { ListItem } from '@chakra-ui/react'
 const TaskItem = (props) => {
   const { _id, task, remove, completed } = props
   return (
-    <ListItem class={completed ? 'completed' : ''}>
+    <ListItem className={completed ? 'completed' : ''}>
       <div><Link to={`/todos/${_id}`}>{task}</Link></div>
       <div>
         <button type='button' name='delete' onClick={() => remove(_id)}>Delete</button>

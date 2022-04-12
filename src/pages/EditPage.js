@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { updateTodo } from '../store/todos'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getSingleTodo } from '../store/singleTodo'
+import { Flex } from '@chakra-ui/react'
 
 /**
     component: EditPage (page level)
@@ -42,11 +43,11 @@ const EditPage = (props) => {
     navigate(-1)
   }
   return (
-    <div>
+    <Flex direction='column' align='center' justify='space-evenly' m={10} border='2px' boxSize='md' borderRadius='5px'>
       <Header name='Edit Task' />
       <EditView id={id} update={update} task={todo.task} completed={todo.completed} />
       <Footer />
-    </div>
+    </Flex>
   )
 }
 
