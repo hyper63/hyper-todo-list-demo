@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Flex, Button, Input, FormLabel } from '@chakra-ui/react'
+import { Flex, Button, Input, FormLabel, Checkbox } from '@chakra-ui/react'
+
 
 /*
     component: EditView
@@ -66,7 +67,7 @@ const EditView = (props) => {
         </Flex>
         <Flex align='baseline'>
           <FormLabel htmlFor='completed'>Task Completed: </FormLabel>
-          <input
+          <Checkbox
             type='checkbox'
             name='completed'
             onChange={handleChecked}

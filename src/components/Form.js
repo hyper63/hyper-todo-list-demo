@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Input, Button, Flex, Spacer } from '@chakra-ui/react'
 
 /*
     component:  Form
@@ -24,8 +25,34 @@ const Form = (props) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <input type='text' name='task' placeholder='Enter a new task' onChange={handleChange} />
-      <button type='submit'>Add</button>
+      <Flex m={2} p={2} justify='space-between'>
+        <Input
+          type='text'
+          name='task'
+          placeholder='Enter a new task'
+          onChange={handleChange}
+          size='md'
+          variant='outline'
+          border='2px'
+          marginRight={4}
+          p={2}
+        />
+        <Spacer />
+        <Button
+          type='submit'
+          variant='solid'
+          size='md'
+          border='2px'
+          color='#f5f5dc'
+          bg='blue.500'
+          _hover={{
+            color: 'blue.500',
+            bg: '#f5f5dc',
+            transform: 'scale(1.1)'
+          }}
+        >Add
+        </Button>
+      </Flex>
     </form>
   )
 }
