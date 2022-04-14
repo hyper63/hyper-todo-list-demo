@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Input, Button, Flex, Spacer } from '@chakra-ui/react'
+import { Input, IconButton, Flex, InputRightElement, InputGroup } from '@chakra-ui/react'
+import { AddIcon } from '@chakra-ui/icons'
 
 /*
     component:  Form
@@ -25,33 +26,39 @@ const Form = (props) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Flex m={2} p={2} justify='space-between'>
-        <Input
-          type='text'
-          name='task'
-          placeholder='Enter a new task'
-          onChange={handleChange}
-          size='md'
-          variant='outline'
-          border='2px'
-          marginRight={4}
-          p={2}
-        />
-        <Spacer />
-        <Button
-          type='submit'
-          variant='solid'
-          size='md'
-          border='2px'
-          color='#f5f5dc'
-          bg='blue.500'
-          _hover={{
-            color: 'blue.500',
-            bg: '#f5f5dc',
-            transform: 'scale(1.1)'
-          }}
-        >Add
-        </Button>
+      <Flex m={2} p={2} justify='center'>
+        <InputGroup>
+          <Input
+            value={value}
+            type='text'
+            name='task'
+            placeholder='Enter a new task'
+            onChange={handleChange}
+            size='md'
+            variant='outline'
+            border='2px'
+            p={2}
+          />
+
+          <InputRightElement>
+            <IconButton
+              aria-label='Add button'
+              icon={<AddIcon />}
+              type='submit'
+              variant='solid'
+              size='md'
+              border='1px'
+              color='#f5f5dc'
+              bg='blue.500'
+              _hover={{
+                color: 'blue.500',
+                bg: '#f5f5dc',
+                transform: 'scale(1)'
+              }}
+            >Add
+            </IconButton>
+          </InputRightElement>
+        </InputGroup>
       </Flex>
     </form>
   )
