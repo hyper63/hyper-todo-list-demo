@@ -1,7 +1,8 @@
 import React from 'react'
 // import EditView from './EditView'
 import { Link } from 'react-router-dom'
-import { ListItem } from '@chakra-ui/react'
+import { ListItem, IconButton } from '@chakra-ui/react'
+import { DeleteIcon } from '@chakra-ui/icons'
 
 /*
   component: TaskItem
@@ -17,7 +18,14 @@ const TaskItem = (props) => {
     <ListItem className={completed ? 'completed' : ''}>
       <div><Link to={`/todos/${_id}`}>{task}</Link></div>
       <div>
-        <button type='button' name='delete' onClick={() => remove(_id)}>Delete</button>
+        <IconButton
+          aria-label='Delete button'
+          icon={<DeleteIcon />}
+          type='button'
+          name='delete'
+          onClick={() => remove(_id)}
+        >Delete
+        </IconButton>
       </div>
     </ListItem>
 
