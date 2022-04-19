@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { connect } from 'react-redux'
 import { getTodos, addTodo, deleteTodo } from '../store/todos'
-import { Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
 /*
   getTodos, addTodo, deleteTodo are thunks from the Redux store.
@@ -54,8 +54,9 @@ const Homepage = (props) => {
     }
   }
   return (
-    <Box
-      boxSize='md'
+    <Flex
+      direction='column'
+      boxSize='lg'
       border='2px'
       borderRadius='md'
       rounded='md'
@@ -63,6 +64,7 @@ const Homepage = (props) => {
       bg='#f5f5dc'
       m={8}
       p={4}
+      align='center'
     >
       <Header name='Task Master' />
       <Form addTodo={addTask} />
@@ -74,7 +76,7 @@ const Homepage = (props) => {
           />
         : <h4>No Tasks Added</h4>}
       <Footer />
-    </Box>
+    </Flex>
   )
 }
 

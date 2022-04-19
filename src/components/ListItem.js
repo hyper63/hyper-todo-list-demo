@@ -1,7 +1,7 @@
 import React from 'react'
 // import EditView from './EditView'
 import { Link } from 'react-router-dom'
-import { ListItem } from '@chakra-ui/react'
+import { ListItem, Flex, Box, Button } from '@chakra-ui/react'
 
 /*
   component: TaskItem
@@ -15,10 +15,12 @@ const TaskItem = (props) => {
   const { _id, task, remove, completed } = props
   return (
     <ListItem className={completed ? 'completed' : ''}>
-      <div><Link to={`/todos/${_id}`}>{task}</Link></div>
-      <div>
-        <button type='button' name='delete' onClick={() => remove(_id)}>Delete</button>
-      </div>
+      <Flex m={2} p={1}>
+        <Box marginRight={5} border='2px' borderColor='blue.500' p={3} borderRadius={10}><Link to={`/todos/${_id}`}>{task}</Link></Box>
+        <Box>
+          <Button type='button' name='delete' onClick={() => remove(_id)}>Delete</Button>
+        </Box>
+      </Flex>
     </ListItem>
 
   )
