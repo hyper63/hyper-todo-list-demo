@@ -1,8 +1,8 @@
 import React from 'react'
 // import EditView from './EditView'
 import { Link } from 'react-router-dom'
-import { ListItem, Flex, Box, Button } from '@chakra-ui/react'
-
+import { ListItem, IconButton, Flex, Box } from '@chakra-ui/react'
+import { DeleteIcon } from '@chakra-ui/icons'
 /*
   component: TaskItem
   purpose:   TaskItem will display each individual task item in li
@@ -16,12 +16,21 @@ const TaskItem = (props) => {
   return (
     <ListItem className={completed ? 'completed' : ''}>
       <Flex m={2} p={1}>
-        <Box marginRight={5} border='2px' borderColor='blue.500' p={3} borderRadius={10}><Link to={`/todos/${_id}`}>{task}</Link></Box>
-        <Box>
-          <Button type='button' name='delete' onClick={() => remove(_id)}>Delete</Button>
+        <Box marginRight={5} border='2px' borderColor='blue.500' p={3} borderRadius={10}><
+          Link to={`/todos/${_id}`}>{task}</Link>
         </Box>
+       <Box>
+        <IconButton
+          aria-label='Delete button'
+          icon={<DeleteIcon />}
+          type='button'
+          name='delete'
+          onClick={() => remove(_id)}
+        >Delete
+        </IconButton>
+       </Box>
       </Flex>
-    </ListItem>
+   </ListItem>
 
   )
 }
