@@ -3,7 +3,7 @@ import { Button, Box } from '@chakra-ui/react'
 
 /*
     componet: DeleteAll
-    props: receives tasks and remove from Homepage.js
+    props: receives tasks and removeAll from Homepage.js
     purpose: delete all tasks that are marked as completed
 
 */
@@ -16,7 +16,7 @@ const DeleteAll = ({ tasks, removeAll }) => {
     }
   }
   return (
-    <Box>
+    <Box marginTop={10}>
       <Button onClick={handleClick}>Delete All Completed</Button>
     </Box>
   )

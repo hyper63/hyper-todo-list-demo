@@ -15,22 +15,26 @@ const TaskItem = (props) => {
   const { _id, task, remove, completed } = props
   return (
     <ListItem className={completed ? 'completed' : ''}>
-      <Flex m={2} p={1}>
-        <Box marginRight={5} border='2px' borderColor='blue.500' p={3} borderRadius={10}><
-          Link to={`/todos/${_id}`}>{task}</Link>
+      <Flex p={1}>
+        <Box border='1px' borderColor='blue.500' p={3} borderRadius={5}>
+          <Link to={`/todos/${_id}`}>{task}</Link>
         </Box>
-       <Box>
-        <IconButton
-          aria-label='Delete button'
-          icon={<DeleteIcon />}
-          type='button'
-          name='delete'
-          onClick={() => remove(_id)}
-        >Delete
-        </IconButton>
-       </Box>
+        <Box>
+          <IconButton
+            border='1px'
+            borderColor='blue.500'
+            bgColor='blue.200'
+            size='lg'
+            aria-label='Delete button'
+            icon={<DeleteIcon />}
+            type='button'
+            name='delete'
+            onClick={() => remove(_id)}
+          >Delete
+          </IconButton>
+        </Box>
       </Flex>
-   </ListItem>
+    </ListItem>
 
   )
 }
