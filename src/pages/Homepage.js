@@ -44,7 +44,7 @@ const Homepage = (props) => {
       await refreshTasks()
     }
     fetchTasks()
-  }, [])
+  }, [tasks])
 
   async function remove (id) {
     try {
