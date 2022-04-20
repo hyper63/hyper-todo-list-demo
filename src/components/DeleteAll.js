@@ -7,10 +7,17 @@ import { Button, Box } from '@chakra-ui/react'
     purpose: delete all tasks that are marked as completed
 
 */
-const DeleteAll = ({ tasks, remove }) => {
+const DeleteAll = ({ tasks, removeAll }) => {
+  async function handleClick (event) {
+    try {
+      await removeAll(tasks)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <Box>
-      <Button>Delete All Completed</Button>
+      <Button onClick={handleClick}>Delete All Completed</Button>
     </Box>
   )
 }
