@@ -23,12 +23,17 @@ const TaskItem = (props) => {
           <IconButton
             border='1px'
             borderColor='blue.500'
-            bgColor='blue.200'
+            bgColor='blue.500'
             size='lg'
+            color='#f5f5dc'
             aria-label='Delete button'
             icon={<DeleteIcon />}
             type='button'
             name='delete'
+            _hover={{
+              color: 'blue.500',
+              bgColor: '#f5f5dc'
+            }}
             onClick={() => remove(_id)}
           >Delete
           </IconButton>
