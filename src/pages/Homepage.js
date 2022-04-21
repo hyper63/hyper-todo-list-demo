@@ -55,8 +55,10 @@ const Homepage = (props) => {
     }
   }
 
-  function removeAll (list) {
-    list.forEach(async (item) => item.completed ? await remove(item._id) : '')
+  async function removeAll (list) {
+    return await Promise.all(
+      list.map(async (item) => item.completed ? await remove(item._id) : '')
+    )
   }
   return (
     <Flex
