@@ -23,15 +23,15 @@ const TodoList = (props) => {
   const { todos, remove } = props
 
   return (
-    <Box>
-      <List spacing={3}>
-        {todos.map(todo =>
+    <Box overflow='auto'>
+      <List>
+        {todos && todos.map(todo =>
           <TaskItem
             {...todo}
             key={todo._id}
             remove={remove}
-
           />)}
+
       </List>
     </Box>
   )
