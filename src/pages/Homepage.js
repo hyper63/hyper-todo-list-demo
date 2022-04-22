@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import { connect } from 'react-redux'
 import { getTodos, addTodo, deleteTodo } from '../store/todos'
 import { Flex } from '@chakra-ui/react'
+import DeleteAll from '../components/DeleteAll'
 
 /*
   getTodos, addTodo, deleteTodo are thunks from the Redux store.
@@ -53,6 +54,12 @@ const Homepage = (props) => {
       console.log(error)
     }
   }
+
+  async function removeAll (list) {
+    return await Promise.all(
+      list.map(async (item) => item.completed ? await remove(item._id) : '')
+    )
+  }
   return (
     <Flex
       direction='column'
@@ -74,7 +81,9 @@ const Homepage = (props) => {
             remove={remove}
             todos={tasks}
           />
+
         : <h4>No Tasks Added</h4>}
+      <DeleteAll tasks={tasks} removeAll={removeAll} />
       <Footer />
     </Flex>
   )
