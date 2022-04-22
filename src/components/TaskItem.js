@@ -12,9 +12,9 @@ import { DeleteIcon } from '@chakra-ui/icons'
 */
 
 const TaskItem = (props) => {
-  const { _id, task, remove, completed, key } = props
+  const { _id, task, remove, completed } = props
   return (
-    <ListItem key={key} className={completed ? 'completed' : ''}>
+    <ListItem className={completed ? 'completed' : ''}>
       <Flex m={2} p={1}>
         <Box marginRight={5} border='2px' borderColor='blue.500' p={3} borderRadius={10}>
           <Link to={`/todos/${_id}`}>{task}</Link>

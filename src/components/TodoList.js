@@ -1,6 +1,6 @@
 import React from 'react'
 import { List, Box } from '@chakra-ui/react'
-import TaskItem from './ListItem'
+import TaskItem from './TaskItem'
 
 /*
   TodoList component
