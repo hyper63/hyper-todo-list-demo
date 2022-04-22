@@ -7,3 +7,10 @@
 .completed a{
   text-decoration: line-through;
 }
+.add-form{
+  width: 75%;
+}
+
+.list-display{
+  width: 75%;
+}

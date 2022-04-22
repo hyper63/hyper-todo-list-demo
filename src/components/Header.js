@@ -5,7 +5,7 @@ const Header = (props) => {
   const { name } = props
   return (
     <header>
-      <Heading size='2xl' m={2} p={3} textAlign='center'>{name}</Heading>
+      <Heading w='100%' size='2xl' m={2} p={3} textAlign='center'>{name}</Heading>
     </header>
   )
 }

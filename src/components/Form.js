@@ -28,7 +28,7 @@ const Form = (props) => {
     setValue(event.target.value)
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='add-form'>
       <Flex m={2} p={2} justify='center'>
         <InputGroup>
           <FormControl isRequired>

@@ -23,7 +23,7 @@ const TodoList = (props) => {
   const { todos, remove } = props
 
   return (
-    <Box overflow='auto'>
+    <Box overflow='auto' className='list-display'>
       <List>
         {todos && todos.map(todo =>
           <TaskItem
