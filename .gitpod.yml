@@ -6,6 +6,7 @@ tasks:
   - init: npm install
     command: |
       export SERVER_HOST=`gp url 3010`
+      node env.js
       npm run start
 vscode:
   extensions:
