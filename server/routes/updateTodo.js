@@ -18,7 +18,7 @@ module.exports = async function updateTodo (req, res) {
         if (validatedTodo) {
           const result = await hyper.data.update(_id, validatedTodo)
           console.log('Result inside server route: ', result)
-          res.json(result)
+          res.json(validatedTodo)
         }
       }
     }
