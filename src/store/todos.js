@@ -28,10 +28,10 @@ const _updateTodo = (todo) => {
   }
 }
 
-const _deleteTodo = (todo) => {
+const _deleteTodo = ({ _id }) => {
   return {
     type: DELETE_TODO,
-    payload: todo
+    payload: { _id }
   }
 }
 
@@ -71,8 +71,8 @@ export const updateTodo = (todo) => {
 export const deleteTodo = (_id) => {
   return async (dispatch) => {
     try {
-      const { data: deleted } = await axios.delete(`/api/todos/${_id}`)
-      dispatch(_deleteTodo(deleted))
+      await axios.delete(`/api/todos/${_id}`)
+      dispatch(_deleteTodo({ _id }))
     } catch (error) {
       console.log(error)
     }
@@ -89,7 +89,7 @@ export default function reducer (state = [], action) {
     case UPDATE_TODO:
       return state.map(todo => todo._id === action.payload._id ? action.payload : todo)
     case DELETE_TODO:
-      return state.filter(todo => todo.id !== action.payload.id)
+      return state.filter(todo => todo._id !== action.payload._id)
     default:
       return state
   }
