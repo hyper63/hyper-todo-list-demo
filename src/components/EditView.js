@@ -28,14 +28,14 @@ import { Flex, Button, Input, FormLabel, Checkbox } from '@chakra-ui/react'
 const EditView = (props) => {
   const { update, task, completed } = props
   const [todo, setTodo] = useState(task)
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(completed)
 
   const handleChange = (event) => {
     setTodo(event.target.value)
   }
 
-  const handleChecked = (event) => {
-    setDone(event.target.checked)
+  const handleChecked = () => {
+    setDone(!done)
   }
 
   async function handleSubmit (event) {
@@ -69,8 +69,7 @@ const EditView = (props) => {
             type='checkbox'
             name='completed'
             onChange={handleChecked}
-            value={done}
-            checked={completed}
+            isChecked={done}
           />
         </Flex>
         <Button

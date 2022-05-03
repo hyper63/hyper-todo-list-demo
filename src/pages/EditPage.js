@@ -45,7 +45,7 @@ const EditPage = (props) => {
   return (
     <Flex direction='column' align='center' justify='space-evenly' m={10} border='2px' boxSize='md' borderRadius='5px'>
       <Header name='Edit Task' />
-      <EditView id={id} update={update} task={todo.task} completed={todo.completed} />
+      <EditView key={id + todo.task + todo.completed} id={id} update={update} task={todo.task} completed={todo.completed} />
       <Footer />
     </Flex>
   )
