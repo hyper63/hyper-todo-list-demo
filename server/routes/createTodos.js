@@ -14,8 +14,8 @@ module.exports = async function createTodos (req, res) {
       try {
         const validatedTodo = await Todo.validateAsync(newTodo)
         if (validatedTodo) {
-          const result = await hyper.data.add(validatedTodo)
-          res.json(result)
+          await hyper.data.add(validatedTodo)
+          res.json(validatedTodo)
         }
       } catch (error) {
         console.log(error)
